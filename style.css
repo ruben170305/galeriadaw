@@ -1,0 +1,85 @@
+@font-face {
+    font-family: "Tipografias";
+    src: url(font/Retosta.otf);
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Tipografias";
+}
+body{
+    background-image: url(carnet.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    display: block;
+    /* color: aqua; */
+}
+.fotos{
+    width: 100%;
+    margin: 0 auto;
+}
+.container::after{
+    /* Para q el contenedor muestre elementos aunque estos sean flotantes */
+    content: '';
+    display: block;
+    clear: both;
+    height: 0px;
+}
+.container{
+    width: 90%;
+    margin: 0 9%;
+}
+
+/* Estructura de cada componente (IMG + DESC) */
+.container div{
+    width: 28%;
+    height: auto;
+    display: inline;
+    float: left;
+    margin: 0% 3% 0% 0%;
+    padding: 0;
+}
+.container div img{
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 0 10px greenyellow;
+    border: 5px solid honeydew;
+}
+.container div img~span{
+    width: 100%;
+    display: block;
+    opacity: 0;
+    margin: 0;
+    padding: 2px 5px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px greenyellow;
+    text-align: center;
+}
+
+/* Mostramos la descripcion al posicionar el cursor sobre la imagen */
+.container div img:hover+span{
+    opacity: 1;
+    background-color: tomato;
+}
+
+/* Establecemos el comportamiento que tendrán las imagenes al posicionar el cursor encima del contenedor */
+.container:hover div{
+    opacity: 0.2;
+    transform: scale(0.7);
+    transition: all 2s;
+}
+
+/* Especifica el comportamiento que tendrá la imagen seleccionada */
+.container:hover div:hover{
+    opacity: 1;
+    transform: scale(1);
+}
